@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  display: flex;
+  align-items: baseline;
+}
+
+.left-count {
+  font-size:30px;
+}
+
+.line {
+  width: 2px;
+  height: 22px;
+  margin: 10rpx;
+  background-color: #000;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-month{
+  font-size:12px;
+  line-height:12px; 
+  padding-bottom: 2px; 
+  margin-right:2rpx;
+}
+
+.right-year{
+  font-size: 10px;
+  line-height:10px; 
+  padding-bottom:3px;   
+}

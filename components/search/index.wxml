@@ -1,0 +1,58 @@
+<view class="container">
+  <view class="header">
+    <view class="search-container">
+      <image class="search-img" src="./images/search.png"></image>
+      <input placeholder="请输入书籍名或作者" value="{{word}}" class="input" auto-focus="true" bind:confirm="onConfirm"></input>
+      <image class="cancel-img" 
+             src="./images/cancel.png"
+             bind:tap="onDelete"
+      ></image>
+    </view>
+    <view class="cancel" bind:tap="onCancel">取消</view>
+  </view>
+  <view class="tag-container" wx:if="{{books.length == 0}}">
+    <view class="history">
+      <view class="title">
+        <view class="chunk"></view>
+        <text>历史搜索</text>
+      </view>
+      <view class="tags" wx:if="{{history.length>0}}">
+        <tag-cmp wx:for="{{history}}" 
+                 wx:key="index" 
+                 text="{{item}}"
+                 bind:tap="onConfirm"
+                 data-word="{{item}}"
+        >
+        </tag-cmp>
+      </view>
+      <view wx:else class="no-history">暂无搜索记录</view>
+    </view>
+    <view class="history hot-search">
+      <view class="title">
+        <view class="chunk"></view>
+        <text>热门搜索</text>
+      </view>
+        <view class="tags">
+          <tag-cmp wx:for="{{hot}}" 
+                   wx:key="index" 
+                   text="{{item}}"
+                   bind:tap="onConfirm"
+                   data-word="{{item}}"
+          >
+          </tag-cmp>
+        </view>
+    </view>
+  </view>
+  <view class="books-container" wx:if="{{books.length > 0}}">
+    <block wx:for="{{books}}" wx:key="{{item.id}}">
+      <book-cmp book="{{item}}" 
+                class="book" 
+                showLike="{{false}}"
+                bind:tap="onBookTap"
+                data-id="{{item.id}}"
+      >
+      </book-cmp>
+    </block>
+  </view>
+  <loading-cmp class="loading" wx:if="{{loadMore}}" />
+</view>

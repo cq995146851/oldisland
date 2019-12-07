@@ -1,0 +1,18 @@
+<view class="preview-container">
+  <view class="head">
+    <view class="tag-container">
+      <tag-cmp text="{{classicType[classic.type]}}" 
+               tag-class="tag"
+      >
+      </tag-cmp>
+    </view>
+    <like-cmp class="like" 
+              read-only="{{true}}" 
+              like="{{true}}" 
+              count="{{classic.fav_nums}}"
+    >
+    </like-cmp>
+  </view>
+  <image class="image" src="{{classic.image}}"></image>
+  <view class="text">{{classic.content}}</view>
+</view>

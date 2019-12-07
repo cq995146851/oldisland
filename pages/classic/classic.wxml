@@ -1,0 +1,47 @@
+<view class="classic-container">
+  <view class="header">
+    <date-cmp index="{{classicData.index}}"
+              class="date"
+    >
+    </date-cmp>
+    <view class="btn-container">
+      <like-cmp like="{{likeStatus}}" 
+              count="{{count}}"
+              bind:like="onLikeTap"
+              class="like"
+      >
+      </like-cmp>
+      <image-btn-cmp class="share-btn" open-type="share">
+        <image class="share" 
+               slot="image" 
+               src="/images/icon/share.png"
+        >
+        </image>
+      </image-btn-cmp>
+    </view>
+  </view>
+  <movie-cmp wx:if="{{classicData.type == 100}}"
+             imgUrl="{{classicData.image}}"
+             content="{{classicData.content}}"
+  >
+  </movie-cmp>
+  <music-cmp wx:if="{{classicData.type == 200}}"
+             imgUrl="{{classicData.image}}"
+             content="{{classicData.content}}"
+             src="{{classicData.url}}" 
+             title="{{classicData.title}}"
+  >
+  </music-cmp>
+  <essay-cmp wx:if="{{classicData.type == 300}}"
+             imgUrl="{{classicData.image}}"
+             content="{{classicData.content}}"
+  >
+  </essay-cmp>
+  <nav-cmp title="{{classicData.title}}"
+           class="nav"
+           bind:previous="onPrevious"
+           bind:next="onNext"
+           isLatest="{{isLatest}}"
+           isFirst="{{isFirst}}"
+  ></nav-cmp>
+</view>

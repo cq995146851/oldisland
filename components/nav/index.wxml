@@ -1,0 +1,13 @@
+<view class="nav-container">
+  <image class="left" 
+         src="{{isLatest ? lDisImgUrl : lImgUrl}}"
+         bind:tap="onLeftTap"
+  >
+  </image>
+  <text class="title">{{title}}</text>
+  <image class="right" 
+         src="{{isFirst ? rDisImgUrl : rImgUrl}}"
+         bind:tap="onRightTap"
+  >
+  </image>
+</view>
